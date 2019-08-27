@@ -1,0 +1,149 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary">Header</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="Enter Mobile/Gmail">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input type="text" matInput placeholder="Password">
+                                </mat-form-field>
+                                <button class="btn btn-primary">Continue</button>
+                            </div>
+                            <div class="col-md-6">
+                                Hi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-light">Header</div>
+                    <div class="card-body">
+                        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+                            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+                                <p>{{'Md Ghajnafar Shahid'+' '+'8877811140'}}
+                                    <span class="badge badge-secondary">Home</span>
+                                </p>
+                                <p>At Po-Baro,Village Baro Dist Begusarai Pin-851118,Bihar</p>
+
+
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="card-footer">Footer</div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-light">Add new Address</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Outline form field</mat-label>
+                                    <input matInput placeholder="Placeholder">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Outline form field</mat-label>
+                                    <input matInput placeholder="Placeholder">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Outline form field</mat-label>
+                                    <input matInput placeholder="Placeholder">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Outline form field</mat-label>
+                                    <input matInput placeholder="Placeholder">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Autosize textarea</mat-label>
+                                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">Footer</div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-primary">ORDER SUMMARY</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="./assets/img/card-1.jpg" style="width:120px;height:120px;" alt="">
+                                <button class="btn btn-round">-</button>
+                                <button class="btn btn-default">1</button>
+                                <button class="btn btn-round">+</button>
+                            </div>
+                            <div class="col-md-6">
+                                <p>
+                                    <b>Try this color men round tshir</b>
+                                </p>
+                                <p class="text-secondary">Size: s</p>
+                                <p class="text-secondary">Seller:Fashion world</p>
+                                <p>399 offer</p>
+                                <p>
+                                    <b>
+                                        <a href="">REMOVE</a>
+                                    </b>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                Deliver in 2 days | rs 40
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-8">This order delever to
+                                <b>Ghajnafar.shahid@gmail.com</b>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary pull-right">Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-light">Price Details</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <p>Price</p>
+                            <b class="pull-right"> 399</b>
+                        </div>
+                        <div class="row">
+                            <p>Delivery charges</p>
+                            <b class="pull-right">50</b>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <p>
+                                <b>Total pay</b>
+                            </p>
+                            <b>449</b>
+                        </div>
+                    </div>
+                    <div class="card-footer">Your total saving on this order
+                        <b>50</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

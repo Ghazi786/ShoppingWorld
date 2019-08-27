@@ -1,6 +1,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-md-4">
                 <div class="card card-product">
                     <div class="card-header card-header-image">
@@ -10,25 +11,118 @@
                         <div class="card-actions text-center">
                         </div>
                         <h4 class="card-title">
-                          <a href="#pablo">Beautiful Castle</a>
+                            <a href="#pablo">Beautiful Castle</a>
                         </h4>
                         <div class="card-description">
-                         {{"item.name"}}
+                            {{"item.name"}}
                         </div>
-                      </div>
-                      <div class="card-footer">
-                        <div class="price">
-                          <h4>{{"item.price"}}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <button class="btn btn-primary"(click)="downLoadTemplate()" >Add To Cart</button>
+                            <button class="btn btn-primary" (click)="onBuyClick()">Buy Now</button>
                         </div>
-                        <div class="stats">
-                          <p class="card-category"><i class="material-icons">place</i> Milan, Italy</p>
-                        </div>
-                      </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-7">
-                
+            <div class="col-md-8">
+                <div class="row custom-specification">
+                    <a href="" style="padding-right: 5px;">Home</a>
+                    <span>></span>
+                    <a href="" style="padding-left: 5px;padding-right: 5px;">Clothing</a>
+                    <span>></span>
+                    <a href="" style="padding-left: 5px;padding-right: 5px;">Mens Clothing</a>
+                    <span>></span>
+                    <a href="" style="padding-left: 5px;padding-right: 5px;">Trousers</a>
+                    <span>></span>
+                    <a href="" style="padding-left: 5px;padding-right: 5px;">Brand Name</a>
+                    <span>></span>
+                    <a href="" style="padding-left: 5px;padding-right: 5px;">Product Name</a>
+                </div>
+                <div class="flex-direction">
+                    <h3>Brand Name</h3>
+                    <p>Product Name</p>
+                </div>
+                <div class="flex-direction">
+                    <h5>
+                        <small>Special Prize</small>
+                    </h5>
+                </div>
+                <div class="row custom-specification flex-row">
+                    <h3>&#x20b9; 1679</h3>
+                    <h3>2399</h3>
+                    <h3>30% off </h3>
+                    <h3>
+                        <i class="material-icons">
+                            info
+                        </i>
+                    </h3>
+                </div>
+                <div class="custom-specification">
+                    <b>Be the first to Review this product</b>
+                </div>
+                <div class="row custom-specification flex-row">
+                    <p>
+                        <i class="material-icons">note</i>
+                    </p>
+                    <p>This is good product</p>
+                </div>
+                <div class="row custom-specification flex-row">
+                    <p>
+                        <i class="material-icons">note</i>
+                    </p>
+                    <p>This is good product</p>
+                </div>
+                <div class="row custom-specification flex-row">
+                    <p>
+                        <i class="material-icons">note</i>
+                    </p>
+                    <p>This is good product</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row custom-specification">
+                            <p>
+                                <i class="fa fa-map-marker" style="font-size: 25px"></i>
+                            </p>
+                            <p>Deliver To</p>
+                        </div>
+                        <div class="row custom-specification">
+                            <mat-form-field>
+                                <input matInput placeholder="Enter Delivery Pin Code" name="deliver" ngModel>
+                                <span matSuffix>Check</span>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <p>Services</p>
+                            <p>
+                                <i class="material-icons">autorenew</i>
+                            </p>
+                            <p>Return Policy</p>
+                        </div>
+                        <div class="row">
+                                <p>
+                                    <i class="material-icons">autorenew</i>
+                                </p>
+                                <p>Cash On Delivry availbale</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-specification">
+                    <h3>View Details</h3>
+                </div>
+                <div class="custom-specification">
+                    <div class="flex-container">
+                        <button class="btn btn-outline">28</button>
+                        <button class="btn btn-outline">28</button>
+                        <button class="btn btn-outline">28</button>
+                        <button class="btn btn-outline">28</button>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>

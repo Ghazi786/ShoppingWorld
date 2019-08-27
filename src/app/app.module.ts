@@ -49,6 +49,7 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { AppRoutes } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigurationService } from './shared/serviceAndConstant/myframeworkservice/app.configuration.service';
+import { CartComponent } from './cartModule/cartComponent/cart.component';
 export function initialzeApp(appconfigurationService: AppConfigurationService) {
   return () => new Promise((resolve, reject) => {
     appconfigurationService.loadConfiguration('assets/configuration/config.json').then((respose) => {
@@ -113,7 +114,8 @@ export class MaterialModule { }
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent, 
+    CartComponent
   ],
   providers: [
     {

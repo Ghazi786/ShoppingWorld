@@ -3,9 +3,7 @@ import { ROUTES } from '../.././sidebar/sidebar.component';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { LoginComponent } from 'src/app/pages/login/login.component';
 import { NgForm } from '@angular/forms';
-import { UserComponent } from 'src/app/userpage/user.component';
 import { UserService } from './user.service';
 const misc: any = {
     navbar_menu_visible: 0,
@@ -253,5 +251,8 @@ export class NavbarComponent implements OnInit {
     }
     login(myForm:NgForm){
         console.log(myForm.value);
+    }
+    onCartClick(){
+        this.router.navigate(['cartDetails'])
     }
 }
