@@ -6,34 +6,89 @@
                     <div class="card-header bg-primary">Header</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <mat-form-field>
                                     <input type="text" matInput placeholder="Enter Mobile/Gmail">
+                                    <span *ngIf="action=='signup'" (click)="onContinue('login')" matSuffix>
+                                        <a>Change?</a>
+                                    </span>
                                 </mat-form-field>
-                                <mat-form-field>
-                                    <input type="text" matInput placeholder="Password">
-                                </mat-form-field>
-                                <button class="btn btn-primary">Continue</button>
+                                <div *ngIf="action=='login' || action=='aftercontinue'">
+                                    <mat-form-field *ngIf="action=='aftercontinue'">
+                                        <input type="text" matInput placeholder="Password">
+                                    </mat-form-field>
+                                    <button (click)="onContinue('signup')" *ngIf="action=='login'" class="btn btn-primary" style="width:100%">Continue</button>
+                                    <button *ngIf="action=='aftercontinue'" class="btn btn-primary" style="width:100%">Login</button>
+                                </div>
+                                <div *ngIf="action=='signup' || action=='aftercontinue'">
+                                    <mat-form-field>
+                                        <input type="text" matInput placeholder="Password">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input type="text" matInput placeholder="Confirm Password">
+                                    </mat-form-field>
+                                    <button class="btn btn-primary" style="width:100%">SignUp</button>
+                                </div>
+
                             </div>
                             <div class="col-md-6">
-                                Hi
+                                <div class="" style="padding: 20px">
+                                    <p>
+                                        <b class="text-muted">Advantage of our secure login</b>
+                                    </p>
+                                    <p>
+                                        <a>
+                                            <i class="material-icons">departure_board</i>
+                                        </a>
+                                        Easily Track Orders,Hassle free Returns
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i class="material-icons">notification_important</i>
+                                        </a>
+                                        Get Relevant Alert and Recommendation
+                                    </p>
+                                    <p>
+                                        <a href="">
+                                            <i class="material-icons">star</i>
+                                        </a>
+                                        Wishlist,Review,Rating and more
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header bg-light">Header</div>
-                    <div class="card-body">
+                    <div class="">
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
-                            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-                                <p>{{'Md Ghajnafar Shahid'+' '+'8877811140'}}
-                                    <span class="badge badge-secondary">Home</span>
-                                </p>
-                                <p>At Po-Baro,Village Baro Dist Begusarai Pin-851118,Bihar</p>
+                            <mat-radio-button class="example-radio-button flex-container" *ngFor="let season of seasons" [value]="season" value="after">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p>
+                                            <b>Md Ghajnafar Shahid</b>
+                                            <span class="badge badge-secondary">Home</span>
+                                            <b>8877811140</b>
+                                        </p>
+                                        <p>At Po-Baro,Village Baro Dist Begusarai Pin-851118,Bihar</p>
+                                    </div>
+                                    <div class="col-md-2 pull-right">
+                                        <a href="">
+                                            <b>EDIT</b>
+                                        </a>
+                                    </div>
+                                </div>
 
 
                             </mat-radio-button>
+
                         </mat-radio-group>
+                        <!-- <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul> -->
                     </div>
                     <div class="card-footer">Footer</div>
                 </div>

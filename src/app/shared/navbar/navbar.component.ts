@@ -28,11 +28,12 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private _router: Subscription;
     private moreOptions = [];
+    mobileNo: any = "";
 
     @ViewChild('app-navbar-cmp') button: any;
     action = 'login';
 
-    constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router,private userService:UserService ) {
+    constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router, private userService: UserService) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -204,7 +205,7 @@ export class NavbarComponent implements OnInit {
     };
     sidebarToggle() {
         console.log("Side bar open");
-        
+
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {
@@ -238,21 +239,24 @@ export class NavbarComponent implements OnInit {
     loginOrsignup(arg) {
         this.action = arg;
     }
-    signup(myForm:NgForm) { 
-        console.log(myForm.value);   
+    signup(myForm: NgForm) {
+        console.log(myForm.value);
         this.userService.createUser(myForm.value).subscribe(
-            (response)=>{
+            (response) => {
                 console.log(response);
             },
-            (error)=>{
+            (error) => {
                 console.log(error);
             }
-        ); 
+        );
     }
-    login(myForm:NgForm){
+    login(myForm: NgForm) {
         console.log(myForm.value);
     }
-    onCartClick(){
+    onCartClick() {
         this.router.navigate(['cartDetails'])
+    }
+    onContinue(arg){
+        this.action=arg;
     }
 }

@@ -23,7 +23,7 @@
                 <div class="navbar-form ">
                   <div class="">
                     <div class="input-group input-style">
-                      <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="example-search-input">
+                      <input class="form-control py-2 border-right-0 border searchClass" type="search" placeholder="Search" id="example-search-input">
                       <span class="input-group-append">
                         <div class="input-group-text bg-transparent has-search">
                           <i class="fa fa-search" style="cursor: pointer;" (click)="onSearch()"></i>
@@ -117,60 +117,96 @@
 </nav>
 
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog  modal-lg">
     <div class="modal-content">
+      <div class="row">
+        <div class="col-md-5 bg-primary" style="color: white;height: 500px;">
+          <div *ngIf="action=='login'" >
+            <div class="row" style="margin-left: 20px;margin-top: 60px;">
+              <h2>Login</h2>
+            </div>
+            <div class="row" *ngIf="action=='login'" style="margin-left: 20px">
+              <h4>Get Acces to your
+                <br> Orders,Wishlist and
+                <br> Recommendations
+              </h4>
+            </div>
+          </div>
+          <div *ngIf="action=='signup' || action=='oncontinue' ">
+            <div class="row" style="margin-left: 20px;margin-top: 60px;">
+              <h2>Signup</h2>
+            </div>
+            <div class="row" style="margin-left: 20px">
+              <h4>We do not share your
+                <br> personal details with
+                <br> anyone
+              </h4>
+            </div>
+          </div>
 
+        </div>
+        <div class="col-md-7">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form #myForm="ngForm">
+              <div *ngIf="action=='login'">
+                <mat-form-field *ngIf="action=='login'">
+                  <span matPrefix *ngIf="mobileNo.length>0">+91 &nbsp;</span>
+                  <input type="tel" matInput name="mobileNo" placeholder="Mobile Number" [(ngModel)]="mobileNo">
+                </mat-form-field>
+                <mat-form-field *ngIf="action=='login'" style="margin-top: 10px;">
+                  <input type="text" matInput placeholder="Password" name="password" ngModel>
+                  <span matSuffix>
+                    <a href="">Forgot?</a>
+                  </span>
+                </mat-form-field>
+                <button class="btn btn-primary" *ngIf="action=='login'" style="width:100%;margin-top: 20px;">Login</button>
+              </div>
+              <div *ngIf="action=='signup' || action=='oncontinue'">
+                <mat-form-field *ngIf="action=='signup'||action=='oncontinue'">
+                  <span matPrefix *ngIf="mobileNo.length>0">+91 &nbsp;</span>
+                  <input type="tel" matInput name="mobileNo" placeholder="Mobile Number" [(ngModel)]="mobileNo">
+                  <span matSuffix *ngIf="action=='oncontinue'" (click)="loginOrsignup('signup')">
+                    <a>Change?</a>
+                  </span>
+                </mat-form-field>
+                <mat-form-field *ngIf="action=='oncontinue'" style="margin-top: 10px;">
+                  <input type="text" matInput placeholder="Password" name="password" ngModel>
+                </mat-form-field>
+                <mat-form-field *ngIf="action=='oncontinue'" style="margin-top: 10px;">
+                  <input type="text" matInput placeholder="Confirm Password" name="cpassword" ngModel>
+                </mat-form-field>
+                <button *ngIf="action=='signup'" (click)="onContinue('oncontinue')" class="btn btn-primary" style="width: 100%;margin-top: 20px;">Continue</button>
+                <button *ngIf="action=='oncontinue'" class="btn btn-primary" style="width: 100%;margin-top: 20px">Sign Up</button>
+                <button *ngIf="action=='signup' || action=='oncontinue' " (click)="loginOrsignup('login')" class="btn btn-default" style="width: 100%;margin-top: 15px">
+                  <a>Existing User?Log in</a>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" *ngIf="action=='login'">
+            <div class="row text-center">
+              <p (click)="loginOrsignup('signup')">
+                <a>New to ShoopingWorld? Create an account</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
       <!-- Modal Header -->
-      <div class="modal-header">
+      <!-- <div class="modal-header">
         <h4 class="modal-title">Login & SignUp</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+      </div> -->
 
       <!-- Modal body -->
-      <div class="modal-body">
-        <form #myForm="ngForm">
-          <mat-form-field *ngIf="action=='signup'">
-            <input type="text" matInput name="userName" placeholder="Name" ngModel>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" matInput placeholder="Email" name="email" ngModel>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" matInput placeholder="Password" name="password" ngModel>
-          </mat-form-field>
-          <div *ngIf="action=='signup'">
-            <mat-form-field>
-              <input type="text" matInput placeholder="Confirm Password" name="cpassword" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="State" name="state" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="District" name="dist" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Pin" name="pin" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Landmark" name="landmark" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Address" name="add" ngModel>
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput placeholder="Country" name="country" ngModel>
-            </mat-form-field>
-          </div>
-        </form>
 
-        <a *ngIf="action=='login'" (click)="loginOrsignup('signup')" style="cursor:pointer">SignUp</a>
-      </div>
 
       <!-- Modal footer -->
-      <div class="modal-footer">
-        <button *ngIf="action=='login'" type="submit" class="btn btn-secondary" data-dismiss="modal" (click)="login(myForm)">Login</button>
-        <button *ngIf="action=='signup'" type="submit" class="btn btn-secondary" data-dismiss="modal" (click)="signup(myForm)">SignUp</button>
-      </div>
+
 
 
     </div>

@@ -7,5 +7,8 @@ import { Component } from "@angular/core";
 })
 export class ProductBuyComponent {
     seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
-
+    action: any = "login";
+    onContinue(arg) {
+        this.action = arg;
+    }
 }
