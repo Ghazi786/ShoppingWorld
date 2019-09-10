@@ -60,20 +60,23 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header bg-light">Header</div>
-                    <div class="">
+                    <div class="card-header bg-primary">Header</div>
+                    <div>
                         <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
-                            <mat-radio-button class="example-radio-button flex-container" *ngFor="let season of seasons" [value]="season" value="after">
+                            <mat-radio-button class="example-radio-button flexAb" *ngFor="let season of seasons;let i=index"
+                                [value]="season" value="after">
                                 <div class="row">
                                     <div class="col-md-10">
                                         <p>
                                             <b>Md Ghajnafar Shahid</b>
                                             <span class="badge badge-secondary">Home</span>
                                             <b>8877811140</b>
+                                            {{i}} i
                                         </p>
                                         <p>At Po-Baro,Village Baro Dist Begusarai Pin-851118,Bihar</p>
+                                        <button class="btn btn-primary">DELIVER HERE</button>
                                     </div>
-                                    <div class="col-md-2 pull-right">
+                                    <div style="position: absolute;right: 0;" class="col-md-2 pull-right">
                                         <a href="">
                                             <b>EDIT</b>
                                         </a>

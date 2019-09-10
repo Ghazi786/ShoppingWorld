@@ -8,6 +8,8 @@ import { MaterialModule } from '../app.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { ProductService } from './productlist/productlist.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ImageInLoop } from './productlist/imageloop.directive';
 
 @NgModule({
     imports: [
@@ -15,13 +17,15 @@ import { ProductService } from './productlist/productlist.service';
         RouterModule.forChild(DashboardRoutes),
         FormsModule,
         MdModule,
-        MaterialModule
-        
+        MaterialModule,
+        HttpClientModule
+
     ],
     declarations: [
         DashboardComponent,
+        ImageInLoop
     ],
-    providers:[ProductService]
+    providers: [ProductService]
 })
 
-export class DashboardModule {}
+export class DashboardModule { }

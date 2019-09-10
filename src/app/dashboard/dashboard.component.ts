@@ -1,39 +1,30 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ProductService } from './productlist/productlist.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 declare const $: any;
 
 @Component({
     selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-    productList: any[];
-    constructor(private prductService: ProductService, private router: Router) { }
-    // startAnimationForBarChart(chart: any) {
-    //     let seq2: any, delays2: any, durations2: any;
-    //     seq2 = 0;
-    //     delays2 = 80;
-    //     durations2 = 500;
-    //     chart.on('draw', function (data: any) {
-    //         if (data.type === 'bar') {
-    //             seq2++;
-    //             data.element.animate({
-    //                 opacity: {
-    //                     begin: seq2 * delays2,
-    //                     dur: durations2,
-    //                     from: 0,
-    //                     to: 1,
-    //                     easing: 'ease'
-    //                 }
-    //             });
-    //         }
-    //     });
-
-    //     seq2 = 0;
-    // }
-    // constructor(private navbarTitleService: NavbarTitleService) { }
+    public productList: any[];
+    show = false;
+    myInterval;
+    onUploadFile(event) {
+        let file: File = event.target.files[0];
+        console.log(file.name);
+        let formData = new FormData();
+        formData.append('file', file);
+        this.http.post('http://localhost:4201/bulkTask/usingExcel', formData).subscribe((data) => {
+            console.log("hello india")
+        });
+    }
+    constructor(private prductService: ProductService, private router: Router, private http: HttpClient) { }
     public ngOnInit() {
+       
         this.productList = [
             {
                 imageId: "./assets/img/card-1.jpg",
@@ -62,35 +53,56 @@ export class DashboardComponent implements OnInit {
         ];
         // this.getProductList();
     }
-    // ngAfterViewInit() {
-    //     const breakCards = true;
-    //     if (breakCards === true) {
-    //         // We break the cards headers if there is too much stress on them :-)
-    //         $('[data-header-animation="true"]').each(function () {
-    //             const $fix_button = $(this);
-    //             const $card = $(this).parent('.card');
-    //             $card.find('.fix-broken-card').click(function () {
-    //                 const $header = $(this).parent().parent().siblings('.card-header, .card-image');
-    //                 $header.removeClass('hinge').addClass('fadeInDown');
+    // onMouseEnter(){
+    //     $(document).ready(function() {
+    //         //this.myInterval=false;
+    //         $(".preview").hide();
+    //         // $("div.list").each(function() {
+    //         //     $(".preview:first", this).show();
+    //         // });
+    //         $('.preview').hover(function(e) {
+    //                 var $imgGrp = $(e.target);
+    //                 var $parent = $imgGrp.parent();
+    //                 var $firstImage = $parent.children('.preview:first');
+    //                 var iOffSet = $firstImage.offset();
+    //                 this.myInterval = setInterval(function() {
+    //                     var $nextImg;
+    //                     $firstImage.hide();
+    //                     if ($imgGrp.next('.preview').length == 0) {
+    //                         $imgGrp.fadeOut('normal');
+    //                         $imgGrp = $firstImage;
+    //                         $nextImg = $imgGrp;
+    //                     } else
+    //                         $nextImg = $imgGrp.next('.preview');
+    //                         if ($imgGrp != $nextImg)
+    //                         $imgGrp.fadeOut('normal');
 
-    //                 $card.attr('data-count', 0);
-
-    //                 setTimeout(function () {
-    //                     $header.removeClass('fadeInDown animate');
-    //                 }, 480);
-    //             });
-
-    //             $card.mouseenter(function () {
-    //                 const $this = $(this);
-    //                 const hover_count = parseInt($this.attr('data-count'), 10) + 1 || 0;
-    //                 $this.attr('data-count', hover_count);
-    //                 if (hover_count >= 20) {
-    //                     $(this).children('.card-header, .card-image').addClass('hinge animated');
+    //                     $nextImg.fadeIn('normal');
+    //                     $imgGrp = $nextImg;
+    //                 }, 1000);
+    //             },
+    //             function() {
+    //                 var $imgGrp = $(this);
+    //                 var $parent = $imgGrp.parent();
+    //                 var $firstImage = $parent.children('.preview:first');
+    //                 if ($(this).attr('src') != $firstImage.attr('src')) {
+    //                     $(this).fadeOut('fast');
     //                 }
+    //                 console.log("clear");
+    //                 $firstImage.fadeIn('fast');
+    //                 clearInterval(this.myInterval);
+    //                // this.myInterval=false;
     //             });
-    //         });
-    //     }
+    //     });
+
+    //     console.log("mouse enter");
     // }
+    // onMouseLeave(){
+
+    //     this.show=false;
+    //     console.log("keave");
+    // }
+   
     getProductList() {
 
         this.prductService.getAllProduct().subscribe((response) => {
@@ -99,5 +111,6 @@ export class DashboardComponent implements OnInit {
     }
     detailsOfProduct() {
         this.router.navigate(['/detailsProduct']);
+       
     }
 }
